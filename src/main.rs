@@ -8,6 +8,7 @@ fn main() {
     if read_filename.is_empty() {
         panic!("Please! Import PO File For Translate.")
     }
+
     for loop_file in read_filename.into_iter() {
         println!("loop and check file name for translate {:?}", loop_file);
         let input_po = format!("{}{}", "data/import_po/", loop_file); //import po file
