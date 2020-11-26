@@ -56,7 +56,8 @@ fn replacing_before_tran(before_tran: String) -> WordReplaceBeforeTran {
             .replace("\n", " zzspzz")
             .replace(" & ", "")
             .replace("&", "")
-            .replace("%", " zzpercentzz")
+            .replace("%", " zlz1percent1zlz")
+            .replace("$", " zlz1dolla1zlz")
             .replace(">/<", "zzlesslinegreaterzz"),
     }
 }
@@ -75,9 +76,10 @@ fn replacing_after_tran(after_tran: Vec<String>) -> WordReplaceAfterTran {
             .map(|x| {
                 x.replace("> <", "><")
                     .replace("zzspzz", "\n")
-                    .replace(" zzpercentzz", "%")
-                    .replace("zzpercentzz", "%")
+                    .replace("zlz1percent1zlz", "%")
                     .replace("  %", " %")
+                    .replace("zlz1dolla1zlz", "$")
+                    .replace("  $", " $")
                     .replace("&quot;", "\"")
                     .replace(" \n", "\n")
                     .replace("&#39;", "'")
