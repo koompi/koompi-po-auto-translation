@@ -250,7 +250,7 @@ fn translate_text_html(s_text: &str) -> String {
     joined_str
 }
 pub fn translation(v: String, source: String, target: String) -> String {
-    let api_key = String::from("GOOGLE_API_KEY");
+    let api_key = String::from("AIzaSyDPQARlKKOtYAz8psTv3nvUs75wTAob-Lk");
 
     let base_url = "https://translation.googleapis.com/language/translate/v2";
     format!(

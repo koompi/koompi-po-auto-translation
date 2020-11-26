@@ -1,1 +1,1 @@
-KOOMPI Automatic Translation PO File is a tool for translate po automatic 
+koompi-po-auto-translation is a tool for translate po file automatic.
