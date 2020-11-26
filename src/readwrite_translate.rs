@@ -113,9 +113,17 @@ fn writecsv(
     read_tran: String,
     write_tran: String,
 ) -> Result<(), Box<dyn Error>> {
-    let p_ac = replacing_after_tran(msg_str);
+    let msg_str_ar = replacing_after_tran(msg_str);
+    let msg_str_p_ar = replacing_after_tran(msg_p_str);
 
-    println!("after replace {:?}", p_ac.segments_after_tran);
+    println!(
+        " msg_str after replace {:?}",
+        msg_str_ar.segments_after_tran
+    );
+    println!(
+        " msg_str_p after replace {:?}",
+        msg_str_p_ar.segments_after_tran
+    );
     //read
     let mut rdr = csv::Reader::from_path(read_tran)?;
     let mut w_msgid = vec![];
@@ -138,7 +146,7 @@ fn writecsv(
     }
     let mut wtr = csv::Writer::from_path(write_tran)?;
 
-    for (((((((a, b), c), d), e), f), g), h) in p_ac
+    for (((((((a, b), c), d), e), f), g), h) in msg_str_ar
         .segments_after_tran
         .iter()
         .zip(w_msgid)
@@ -147,7 +155,7 @@ fn writecsv(
         .zip(w_references)
         .zip(w_extracted_comments)
         .zip(w_comments)
-        .zip(msg_p_str)
+        .zip(msg_str_p_ar.segments_after_tran)
     {
         wtr.serialize(RecordWrite {
             msgid: b.to_string(),
@@ -250,7 +258,7 @@ fn translate_text_html(s_text: &str) -> String {
     joined_str
 }
 pub fn translation(v: String, source: String, target: String) -> String {
-    let api_key = String::from("AIzaSyDPQARlKKOtYAz8psTv3nvUs75wTAob-Lk");
+    let api_key = String::from("GOOGLE_API_KEY");
 
     let base_url = "https://translation.googleapis.com/language/translate/v2";
     format!(
